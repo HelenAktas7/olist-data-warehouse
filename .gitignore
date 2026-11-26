@@ -4,3 +4,7 @@ __pycache__/
 data/raw/*.csv
 *.env
 .DS_Store
+target/
+dbt_packages/
+logs/
+

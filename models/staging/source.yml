@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: raw
+    database: olist
+    schema: raw
+    description: "Kaggle Olist e-ticaret ham verisi (dokunulmamis kaynak tablolar)"
+    tables:
+      - name: orders
+        description: "Ham siparisler tablosu"
+      - name: order_items
+        description: "Ham siparis kalemleri tablosu"
+      - name: customers
+        description: "Ham musteriler tablosu"
+      - name: products
+        description: "Ham urunler tablosu"
+      - name: sellers
+        description: "Ham saticilar tablosu"
+      - name: category_name_translation
+        description: "Ham kategori ceviri tablosu"

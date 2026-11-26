@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fact_order_items
+    description: "Siparis kalemleri olgu tablosu (Grain: 1 siparis kalemi)"
+    columns:
+      - name: order_id
+        description: "Siparis ID"
+        tests:
+          - not_null
+      - name: order_item_id
+        description: "Kalem sira numarasi"
+        tests:
+          - not_null
+      - name: product_key
+        description: "dim_product tablosuna baglanan yabanci anahtar"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+      - name: seller_key
+        description: "dim_seller tablosuna baglanan yabanci anahtar"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_seller')
+              field: seller_key
+      - name: price
+        description: "Urun satis fiyati"
+        tests:
+          - not_null
+
+  - name: dim_customer
+    description: "SCD Type 2 musteri boyut tablosu"
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+          - not_null
